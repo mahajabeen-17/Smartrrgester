@@ -1,1 +1,51 @@
+2. templates/index.html (Frontend HTML)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elemental Arena</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Elemental Arena</h1>
+        <p>Welcome, <span id="username">{{ username }}</span>! <a href="/logout">Logout</a></p>
 
+        <div id="game-setup">
+            <h2>Choose Your Creature:</h2>
+            <select id="creature-select">
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="earth">Earth</option>
+                <option value="air">Air</option>
+            </select>
+            <button id="start-game-btn">Start New Game</button>
+        </div>
+
+        <div id="game-area" style="display:none;">
+            <h2>Game In Progress</h2>
+            <div class="creature-display">
+                <h3>Your Creature (<span id="player-type"></span>)</h3>
+                <p>HP: <span id="player-hp"></span></p>
+            </div>
+            <div class="creature-display">
+                <h3>AI Opponent (<span id="ai-type"></span>)</h3>
+                <p>HP: <span id="ai-hp"></span></p>
+            </div>
+
+            <div id="game-log">
+                <h3>Battle Log:</h3>
+                <ul id="log-list"></ul>
+            </div>
+
+            <button id="attack-btn" disabled>Attack!</button>
+            <p id="turn-indicator"></p>
+            <p id="game-status"></p>
+            <button id="restart-game-btn" style="display:none;">Play Again</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-5. static/script.js (Frontend JavaScript)
+static/script.js (Frontend JavaScript)
 document.addEventListener('DOMContentLoaded', () => {
     const startGameBtn = document.getElementById('start-game-btn');
     const creatureSelect = document.getElementById('creature-select');
